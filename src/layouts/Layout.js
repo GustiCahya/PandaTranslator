@@ -10,9 +10,10 @@ import {
   Toolbar,
   Typography
 } from "@mui/material";
-import { SubjectOutlined } from "@mui/icons-material";
 import { useHistory, useLocation } from "react-router-dom";
 import { format } from "date-fns";
+import SubjectOutlined from "@mui/icons-material/SubjectOutlined";
+import AbcIcon from '@mui/icons-material/Abc';
 
 const drawerWidth = 240;
 const styles = {
@@ -47,7 +48,12 @@ export default function Layout({ children }) {
       text: "Normalize",
       icon: <SubjectOutlined />,
       path: "/",
-    }
+    },
+    {
+      text: "Find Index Alphabets",
+      icon: <AbcIcon />,
+      path: "/find-index",
+    },
   ];
   return (
     <Box>
@@ -66,7 +72,7 @@ export default function Layout({ children }) {
       <Box sx={styles.root}>
         <Drawer sx={styles.drawer} variant="permanent" anchor="left">
           <Box sx={{py: 2, px: 2}}>
-            <Typography variant="h5">Panda Language</Typography>
+            <Typography variant="h5">Panda Translator</Typography>
           </Box>
           {/* list / links */}
           <List>

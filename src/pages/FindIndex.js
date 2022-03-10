@@ -99,19 +99,13 @@ export default function FindIndex() {
             if (/^[\d\sㅤ]*$/i.test(value)) {
               const arrValue = value.split(" ");
               const arrItems = arrValue.map((item) => {
-<<<<<<< HEAD
                 if (item === "" || item === "ㅤ") {
                   return "ㅤ";
-=======
-                if (item === "") {
-                  return "  ";
->>>>>>> 11bb38dc9a68cadf601ba3fe63fa64042267d908
                 }
-                const val = alphabets.find((_, idx) =>{
+                const val = alphabets.find((_, idx) => {
                   const num = item > 26 ? item % 26 : item;
-                  return new RegExp(`^${(idx+1)}$`, "gi").test(num)
-                }
-                );
+                  return new RegExp(`^${idx + 1}$`, "gi").test(num);
+                });
                 return val;
               });
               setArrAbc(arrItems);

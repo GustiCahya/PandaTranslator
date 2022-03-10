@@ -65,7 +65,7 @@ export default function Normalize() {
           component="h2"
           gutterBottom
         >
-          Normalize Panda Language
+          Normalize Cipher Substitution
         </Typography>
         <form noValidate autoComplete="off" onSubmit={handleSubmit}>
           <TextField

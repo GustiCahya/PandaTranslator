@@ -22,6 +22,10 @@ export default function FindIndex() {
   const nums = React.useMemo(() => {
     return arrNums.join(" ");
   }, [arrNums]);
+  const [arrAbc, setArrAbc] = React.useState([]);
+  const abc = React.useMemo(() => {
+    return arrAbc.join("");
+  }, [arrAbc]);
   return (
     <Container>
       <Paper sx={{ p: 2, borderRadius: 2 }}>
@@ -32,12 +36,12 @@ export default function FindIndex() {
           component="h2"
           gutterBottom
         >
-          Find Index from Alphabets
+          Alphabets ={">"} Index
         </Typography>
         <TextField
           sx={styles.field}
           name="words"
-          label="Text"
+          label="Alphabets"
           variant="outlined"
           fullWidth
           multiline
@@ -69,6 +73,52 @@ export default function FindIndex() {
             sx={{ fontWeight: "bold", mt: 2, mx: 1, textAlign: "left" }}
           >
             {nums}
+          </Typography>
+        </Zoom>
+      </Paper>
+      <Paper sx={{ p: 2, my: 3, borderRadius: 2 }}>
+        <Typography
+          sx={{ mt: 1, mb: 3 }}
+          variant="h6"
+          color="wordsSecondary"
+          component="h2"
+          gutterBottom
+        >
+          Index ={">"} Alphabets
+        </Typography>
+        <TextField
+          sx={styles.field}
+          name="words"
+          label="Index"
+          variant="outlined"
+          fullWidth
+          multiline
+          onChange={(e) => {
+            const alpha = Array.from(Array(26)).map((e, i) => i + 65);
+            const alphabets = alpha.map((x) => String.fromCharCode(x));
+            const value = e.target.value;
+            if (/^[\d\s]*$/i.test(value)) {
+              const arrValue = value.split(" ");
+              const arrItems = arrValue.map((item) => {
+                if (item === "") {
+                  return "ㅤ";
+                }
+                const val = alphabets.find((_, idx) =>{
+                  const num = item > 26 ? item % 26 : item;
+                  return new RegExp(`^${(idx+1)}$`, "gi").test(num)
+                }
+                );
+                return val;
+              });
+              setArrAbc(arrItems);
+            }
+          }}
+        />
+        <Zoom in={abc}>
+          <Typography
+            sx={{ fontWeight: "bold", mt: 2, mx: 1, textAlign: "left" }}
+          >
+            {abc}
           </Typography>
         </Zoom>
       </Paper>

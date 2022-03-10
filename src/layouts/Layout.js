@@ -50,7 +50,7 @@ export default function Layout({ children }) {
       path: "/",
     },
     {
-      text: "Find Index Alphabets",
+      text: "Convert Alphabets and Index",
       icon: <AbcIcon />,
       path: "/find-index",
     },

@@ -52,7 +52,7 @@ export default function FindIndex() {
               const arrValue = value.split("");
               const arrItems = arrValue.map((item) => {
                 if (item === " ") {
-                  return "  ";
+                  return "ㅤ";
                 }
                 const idx = alphabets.findIndex((val) =>
                   new RegExp(`^${val}$`, "gi").test(item)
@@ -96,11 +96,11 @@ export default function FindIndex() {
             const alpha = Array.from(Array(26)).map((e, i) => i + 65);
             const alphabets = alpha.map((x) => String.fromCharCode(x));
             const value = e.target.value;
-            if (/^[\d\s]*$/i.test(value)) {
+            if (/^[\d\sㅤ]*$/i.test(value)) {
               const arrValue = value.split(" ");
               const arrItems = arrValue.map((item) => {
-                if (item === "") {
-                  return "  ";
+                if (item === "" || item === "ㅤ") {
+                  return "ㅤ";
                 }
                 const val = alphabets.find((_, idx) =>{
                   const num = item > 26 ? item % 26 : item;

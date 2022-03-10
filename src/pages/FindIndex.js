@@ -7,7 +7,6 @@ import {
   Paper,
   Zoom,
 } from "@mui/material";
-import normalize from "../utils/normalize";
 
 const styles = {
   field: {
@@ -53,7 +52,7 @@ export default function FindIndex() {
               const arrValue = value.split("");
               const arrItems = arrValue.map((item) => {
                 if (item === " ") {
-                  return "ㅤ";
+                  return "  ";
                 }
                 const idx = alphabets.findIndex((val) =>
                   new RegExp(`^${val}$`, "gi").test(item)
@@ -101,7 +100,7 @@ export default function FindIndex() {
               const arrValue = value.split(" ");
               const arrItems = arrValue.map((item) => {
                 if (item === "") {
-                  return "ㅤ";
+                  return "  ";
                 }
                 const val = alphabets.find((_, idx) =>{
                   const num = item > 26 ? item % 26 : item;
